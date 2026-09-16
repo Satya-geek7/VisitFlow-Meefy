@@ -51,34 +51,36 @@ export function WalkInExpressModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 backdrop-blur-xs p-4">
-      <div className="relative w-full max-w-xl overflow-hidden rounded-3xl border border-neutral-200 bg-white p-6 shadow-2xl">
-        <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 backdrop-blur-xs p-4 overflow-y-auto">
+      <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl my-6 max-h-[92vh] flex flex-col">
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-neutral-100 pb-5 shrink-0">
           <div>
-            <div className="flex items-center space-x-2">
-              <h3 className="text-base font-bold text-neutral-950">
-                Walk-In Express Registration Lane
+            <div className="flex items-center space-x-2.5">
+              <h3 className="text-lg font-black tracking-tight text-neutral-950">
+                Walk-In Express Entry Lane
               </h3>
-              <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700 border border-amber-200">
-                Gate Arrival
+              <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-bold text-amber-800 border border-amber-200">
+                Gate 1 Check-In
               </span>
             </div>
-            <p className="text-xs text-neutral-500 mt-0.5">
-              Rapid on-spot entry for unannounced guests with instant host alert dispatch
+            <p className="text-xs text-neutral-500 mt-1">
+              Rapid on-spot admission for unannounced guests with instant host officer dispatch
             </p>
           </div>
           <button
             onClick={onClose}
-            className="rounded-full p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-700 transition-colors"
+            className="rounded-full p-2 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-700 transition-colors"
           >
             ✕
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-5 space-y-4 text-xs">
+        {/* Scrollable Form Body */}
+        <form onSubmit={handleSubmit} className="mt-5 space-y-4 text-xs overflow-y-auto pr-1">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Full Name *
               </label>
               <input
@@ -87,11 +89,11 @@ export function WalkInExpressModal({
                 placeholder="e.g. Ramesh Chandra Das"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
               />
             </div>
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Mobile Number *
               </label>
               <input
@@ -100,14 +102,14 @@ export function WalkInExpressModal({
                 placeholder="+91 98765 43210"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Organization / Institution
               </label>
               <input
@@ -117,32 +119,32 @@ export function WalkInExpressModal({
                 onChange={(e) =>
                   setFormData({ ...formData, organization: e.target.value })
                 }
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
               />
             </div>
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
-                Email Address
+              <label className="block font-semibold text-neutral-700 mb-1.5">
+                Email Address (Optional)
               </label>
               <input
                 type="email"
                 placeholder="visitor@domain.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Official ID Type *
               </label>
               <select
                 value={formData.idType}
                 onChange={(e) => setFormData({ ...formData, idType: e.target.value })}
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
               >
                 <option value="Aadhaar Card">Aadhaar Card</option>
                 <option value="Government ID">Government Official ID</option>
@@ -152,8 +154,8 @@ export function WalkInExpressModal({
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
-                ID Reference / Last 4 digits
+              <label className="block font-semibold text-neutral-700 mb-1.5">
+                ID Reference / Number
               </label>
               <input
                 type="text"
@@ -162,20 +164,20 @@ export function WalkInExpressModal({
                 onChange={(e) =>
                   setFormData({ ...formData, idNumber: e.target.value })
                 }
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Host Officer to Meet *
               </label>
               <select
                 value={formData.hostName}
                 onChange={(e) => handleOfficerChange(e.target.value)}
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
               >
                 {INITIAL_OFFICERS.map((o) => (
                   <option key={o.id} value={o.name}>
@@ -185,13 +187,13 @@ export function WalkInExpressModal({
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Allocated Room / Desk
               </label>
               <select
                 value={formData.roomName}
                 onChange={(e) => setFormData({ ...formData, roomName: e.target.value })}
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
               >
                 <option value="Reception Consultation Desk">Reception Consultation Desk</option>
                 {INITIAL_ROOMS.map((r) => (
@@ -204,22 +206,22 @@ export function WalkInExpressModal({
           </div>
 
           <div>
-            <label className="block font-semibold text-neutral-700 mb-1">
+            <label className="block font-semibold text-neutral-700 mb-1.5">
               Purpose of Visit *
             </label>
             <textarea
               rows={2}
               required
-              placeholder="State agenda of meeting (e.g. Official consultation, tender clarification, hardware delivery)..."
+              placeholder="State purpose of visit (e.g. Official inquiry, document submission, lab inspection)..."
               value={formData.purpose}
               onChange={(e) => setFormData({ ...formData, purpose: e.target.value })}
-              className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
+              className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none transition-all"
             />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Accompanying Guests
               </label>
               <input
@@ -233,11 +235,11 @@ export function WalkInExpressModal({
                     accompanyingCount: Number(e.target.value),
                   })
                 }
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
               />
             </div>
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Vehicle # (Optional)
               </label>
               <input
@@ -247,31 +249,31 @@ export function WalkInExpressModal({
                 onChange={(e) =>
                   setFormData({ ...formData, vehicleNumber: e.target.value })
                 }
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50/70 p-2.5 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:border-neutral-900 focus:bg-white focus:outline-none"
               />
             </div>
           </div>
 
-          <div className="rounded-xl bg-amber-50/60 p-3 text-amber-900 border border-amber-100 flex items-start space-x-2">
-            <span className="mt-0.5 text-amber-600">⚡</span>
+          <div className="rounded-2xl bg-amber-50/80 p-4 text-amber-900 border border-amber-200/60 flex items-start space-x-3">
+            <span className="mt-0.5 text-base">⚡</span>
             <p className="text-[11px] leading-relaxed">
-              Upon confirmation, an immediate high-priority web notification is sent to{" "}
-              <span className="font-semibold">{formData.hostName}</span> with a 5-minute countdown.
-              The visitor is admitted directly and issued a gate QR pass.
+              Upon submission, an immediate high-priority web notification is dispatched to{" "}
+              <strong className="text-neutral-900">{formData.hostName}</strong> with a 5-minute countdown.
+              The visitor is admitted directly and a secure gate pass is generated.
             </p>
           </div>
 
-          <div className="mt-6 flex items-center justify-end space-x-3 border-t border-neutral-100 pt-4">
+          <div className="flex items-center justify-end space-x-3 border-t border-neutral-100 pt-5 shrink-0">
             <button
               type="button"
               onClick={onClose}
-              className="rounded-xl border border-neutral-200 px-4 py-2 text-xs font-medium text-neutral-600 hover:bg-neutral-50 transition-colors"
+              className="rounded-xl border border-neutral-200 px-4 py-2.5 text-xs font-semibold text-neutral-600 hover:bg-neutral-50 transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="rounded-xl bg-neutral-950 px-5 py-2 text-xs font-medium text-white shadow-xs hover:bg-neutral-800 transition-all"
+              className="rounded-xl bg-neutral-950 px-6 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-neutral-800 transition-all active:scale-[0.98]"
             >
               Admit & Issue Digital Pass
             </button>

@@ -37,44 +37,38 @@ export function HostApprovalInbox({
   return (
     <div className="space-y-6">
       {/* Inbox Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-2xs">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-xs">
         <div>
-          <div className="flex items-center space-x-2">
-            <h2 className="text-base font-bold text-neutral-950">
-              Host Officer Decision & Approvals Inbox
+          <div className="flex items-center space-x-2.5">
+            <h2 className="text-lg font-bold tracking-tight text-neutral-950">
+              Host Decision & Approvals Inbox
             </h2>
-            <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-800 border border-amber-200">
+            <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-bold text-amber-800 border border-amber-200">
               {pendingApprovals.length} Awaiting Decision
             </span>
           </div>
-          <p className="mt-1 text-xs text-neutral-500">
-            One-click authorizations for officer appointments, delegation, and official visitor pass issuance
+          <p className="mt-1 text-xs text-neutral-500 max-w-2xl leading-relaxed">
+            Instant decision workflow for NIELIT officers: Accept meeting, issue digital pass, decline with reason, or delegate to department colleague
           </p>
         </div>
 
-        <div className="flex items-center space-x-2 text-xs text-neutral-500">
+        <div className="flex items-center space-x-2 text-xs font-semibold text-neutral-600 bg-neutral-50 px-3.5 py-2 rounded-xl border border-neutral-200/80">
           <span className="flex h-2 w-2 rounded-full bg-emerald-500"></span>
-          <span>4-Hour SLA Escalation Guard Active</span>
+          <span>4-Hour SLA Guard Active</span>
         </div>
       </div>
 
       {/* Cards */}
       {pendingApprovals.length === 0 ? (
-        <div className="rounded-2xl border border-neutral-200 bg-white p-12 text-center text-neutral-500">
-          <svg
-            className="mx-auto h-8 w-8 text-neutral-300"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <polyline points="20 6 9 17 4 12" />
-          </svg>
-          <p className="mt-2 text-sm font-semibold text-neutral-800">
-            All pending approvals cleared!
+        <div className="rounded-3xl border border-neutral-200/90 bg-white p-16 text-center text-neutral-500 shadow-xs">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 mb-3 text-xl">
+            ✓
+          </div>
+          <p className="text-base font-bold text-neutral-900">
+            All pending approvals are cleared!
           </p>
-          <p className="text-xs text-neutral-400">
-            No meeting requests currently awaiting host confirmation.
+          <p className="text-xs text-neutral-400 mt-1">
+            No meeting requests currently awaiting your confirmation.
           </p>
         </div>
       ) : (
@@ -82,34 +76,36 @@ export function HostApprovalInbox({
           {pendingApprovals.map((v) => (
             <div
               key={v.id}
-              className="flex flex-col gap-4 rounded-2xl border border-neutral-200 bg-white p-6 shadow-2xs sm:flex-row sm:items-center sm:justify-between hover:border-neutral-300 transition-all"
+              className="flex flex-col gap-5 rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-7 shadow-xs hover:border-neutral-300 hover:shadow-md transition-all duration-200 lg:flex-row lg:items-center lg:justify-between"
             >
-              <div className="space-y-1.5 flex-1">
+              <div className="space-y-2 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="font-bold text-neutral-950 text-sm">{v.name}</span>
-                  <span className="rounded-lg bg-neutral-100 px-2 py-0.5 text-xs text-neutral-600 font-medium">
+                  <span className="font-bold text-neutral-950 text-base">{v.name}</span>
+                  <span className="rounded-lg bg-neutral-100 px-2.5 py-0.5 text-xs text-neutral-600 font-medium">
                     {v.organization}
                   </span>
-                  <span className="font-mono text-[11px] text-neutral-400">
+                  <span className="font-mono text-xs text-neutral-400">
                     {v.passNumber}
                   </span>
-                  <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-700 border border-amber-200">
-                    SLA: 3h 15m left
+                  <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-[10px] font-bold text-amber-800 border border-amber-200">
+                    SLA: ~3h remaining
                   </span>
                 </div>
 
                 <p className="text-xs text-neutral-600">
                   Meeting Requested With:{" "}
-                  <span className="font-semibold text-neutral-900">{v.hostName}</span> (
+                  <strong className="text-neutral-900">{v.hostName}</strong> (
                   {v.department})
                 </p>
 
-                <div className="rounded-xl bg-neutral-50 p-2.5 text-xs text-neutral-700 border border-neutral-100 max-w-2xl">
-                  <span className="font-medium text-neutral-500">Purpose: </span>
-                  <span className="text-neutral-900 italic">&ldquo;{v.purpose}&rdquo;</span>
+                <div className="rounded-2xl bg-neutral-50/80 p-3.5 text-xs text-neutral-700 border border-neutral-100 max-w-2xl leading-relaxed">
+                  <span className="font-bold text-neutral-500 uppercase text-[10px] tracking-wider block mb-0.5">
+                    Agenda:
+                  </span>
+                  <span className="italic text-neutral-800">&ldquo;{v.purpose}&rdquo;</span>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 text-xs text-neutral-500 pt-0.5">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-neutral-500 pt-1">
                   <span>📅 Slot: <strong className="text-neutral-800">{v.scheduledTime}</strong></span>
                   <span>•</span>
                   <span>📍 Venue: <strong className="text-neutral-800">{v.roomName || "Main Office"}</strong></span>
@@ -119,22 +115,22 @@ export function HostApprovalInbox({
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-2 shrink-0 border-t sm:border-t-0 pt-3 sm:pt-0">
+              <div className="flex flex-wrap items-center gap-2.5 shrink-0 border-t lg:border-t-0 pt-4 lg:pt-0">
                 <button
                   onClick={() => setDeclineVisitorId(v.id)}
-                  className="rounded-xl border border-neutral-200 px-3 py-2 text-xs font-medium text-neutral-700 hover:bg-neutral-50 hover:text-red-600 shadow-2xs transition-colors"
+                  className="rounded-xl border border-neutral-200 px-4 py-2.5 text-xs font-semibold text-neutral-700 hover:bg-neutral-50 hover:text-rose-600 shadow-2xs transition-all active:scale-[0.98]"
                 >
                   Decline
                 </button>
                 <button
                   onClick={() => setDelegateVisitorId(v.id)}
-                  className="rounded-xl border border-neutral-200 px-3 py-2 text-xs font-medium text-neutral-700 hover:bg-neutral-50 shadow-2xs transition-colors"
+                  className="rounded-xl border border-neutral-200 px-4 py-2.5 text-xs font-semibold text-neutral-700 hover:bg-neutral-50 shadow-2xs transition-all active:scale-[0.98]"
                 >
                   Delegate ↗
                 </button>
                 <button
                   onClick={() => onHostAction(v.id, "APPROVE")}
-                  className="rounded-xl bg-neutral-950 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-neutral-800 transition-colors"
+                  className="rounded-xl bg-neutral-950 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-neutral-800 transition-all active:scale-[0.98]"
                 >
                   Accept & Issue Pass
                 </button>
@@ -146,13 +142,13 @@ export function HostApprovalInbox({
 
       {/* Decline Reason Modal */}
       {declineVisitorId && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 backdrop-blur-xs p-4">
+          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-7 shadow-2xl">
             <h3 className="text-base font-bold text-neutral-950">
               Decline Visit Request
             </h3>
-            <p className="mt-1 text-xs text-neutral-500">
-              Provide an optional decline note to accompany the email/SMS notification to the guest.
+            <p className="mt-1 text-xs text-neutral-500 leading-relaxed">
+              Provide an optional note to accompany the email notification to the guest.
             </p>
 
             <textarea
@@ -160,19 +156,19 @@ export function HostApprovalInbox({
               value={declineReason}
               onChange={(e) => setDeclineReason(e.target.value)}
               placeholder="e.g. Officer attending urgent center review. Please reschedule for next week..."
-              className="mt-4 w-full rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 text-xs focus:outline-none focus:border-neutral-900"
+              className="mt-4 w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs focus:outline-none focus:border-neutral-900"
             />
 
-            <div className="mt-4 flex items-center justify-end space-x-2">
+            <div className="mt-5 flex items-center justify-end space-x-3">
               <button
                 onClick={() => setDeclineVisitorId(null)}
-                className="rounded-xl border border-neutral-200 px-3.5 py-2 text-xs font-medium text-neutral-600 hover:bg-neutral-50"
+                className="rounded-xl border border-neutral-200 px-4 py-2 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
               >
                 Cancel
               </button>
               <button
                 onClick={handleConfirmDecline}
-                className="rounded-xl bg-rose-600 px-4 py-2 text-xs font-medium text-white hover:bg-rose-700 shadow-xs"
+                className="rounded-xl bg-rose-600 px-5 py-2 text-xs font-bold text-white hover:bg-rose-700 shadow-xs"
               >
                 Confirm Decline
               </button>
@@ -183,23 +179,23 @@ export function HostApprovalInbox({
 
       {/* Delegate Modal */}
       {delegateVisitorId && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4">
-          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 shadow-2xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 backdrop-blur-xs p-4">
+          <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 sm:p-7 shadow-2xl">
             <h3 className="text-base font-bold text-neutral-950">
               Delegate Meeting to Colleague
             </h3>
-            <p className="mt-1 text-xs text-neutral-500">
-              Select an available officer in the center to take over this visitor meeting.
+            <p className="mt-1 text-xs text-neutral-500 leading-relaxed">
+              Select an available officer in NIELIT Bhubaneswar to take over this meeting.
             </p>
 
             <div className="mt-4">
-              <label className="block text-xs font-semibold text-neutral-700 mb-1">
+              <label className="block text-xs font-semibold text-neutral-700 mb-1.5">
                 New Host Officer
               </label>
               <select
                 value={delegateHost}
                 onChange={(e) => setDelegateHost(e.target.value)}
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 text-xs focus:outline-none focus:border-neutral-900"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs focus:outline-none focus:border-neutral-900"
               >
                 {INITIAL_OFFICERS.map((o) => (
                   <option key={o.id} value={o.name}>
@@ -209,16 +205,16 @@ export function HostApprovalInbox({
               </select>
             </div>
 
-            <div className="mt-5 flex items-center justify-end space-x-2">
+            <div className="mt-6 flex items-center justify-end space-x-3">
               <button
                 onClick={() => setDelegateVisitorId(null)}
-                className="rounded-xl border border-neutral-200 px-3.5 py-2 text-xs font-medium text-neutral-600 hover:bg-neutral-50"
+                className="rounded-xl border border-neutral-200 px-4 py-2 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
               >
                 Cancel
               </button>
               <button
                 onClick={handleConfirmDelegate}
-                className="rounded-xl bg-neutral-950 px-4 py-2 text-xs font-medium text-white hover:bg-neutral-800 shadow-xs"
+                className="rounded-xl bg-neutral-950 px-5 py-2 text-xs font-bold text-white hover:bg-neutral-800 shadow-xs"
               >
                 Transfer Request
               </button>

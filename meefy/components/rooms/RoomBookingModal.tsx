@@ -33,27 +33,27 @@ export function RoomBookingModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 backdrop-blur-xs p-4">
-      <div className="w-full max-w-md rounded-3xl border border-neutral-200 bg-white p-6 shadow-2xl">
-        <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
+      <div className="w-full max-w-lg rounded-3xl border border-neutral-200 bg-white p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="flex items-center justify-between border-b border-neutral-100 pb-5">
           <div>
             <h3 className="text-base font-bold text-neutral-950">
               Reserve {room.name}
             </h3>
-            <p className="text-xs text-neutral-500">
-              {room.location} • Max {room.capacity} seats
+            <p className="text-xs text-neutral-500 mt-0.5">
+              {room.location} • Max {room.capacity} seats • Floor {room.floor}
             </p>
           </div>
           <button
             onClick={onClose}
-            className="rounded-full p-1.5 text-neutral-400 hover:bg-neutral-100"
+            className="rounded-full p-2 text-neutral-400 hover:bg-neutral-100"
           >
             ✕
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-4 space-y-4 text-xs">
+        <form onSubmit={handleSubmit} className="mt-5 space-y-4 text-xs">
           <div>
-            <label className="block font-semibold text-neutral-700 mb-1">
+            <label className="block font-semibold text-neutral-700 mb-1.5">
               Meeting Title / Agenda *
             </label>
             <input
@@ -62,18 +62,18 @@ export function RoomBookingModal({
               placeholder="e.g. Project Progress Review / Vendor Consultation"
               value={meetingTitle}
               onChange={(e) => setMeetingTitle(e.target.value)}
-              className="w-full rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 text-xs text-neutral-900 focus:outline-none focus:border-neutral-900"
+              className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:outline-none focus:border-neutral-900"
             />
           </div>
 
           <div>
-            <label className="block font-semibold text-neutral-700 mb-1">
-              Organizing Officer (Host)
+            <label className="block font-semibold text-neutral-700 mb-1.5">
+              Organizing Officer (Lead Host)
             </label>
             <select
               value={hostName}
               onChange={(e) => setHostName(e.target.value)}
-              className="w-full rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 text-xs text-neutral-900 focus:outline-none focus:border-neutral-900"
+              className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:outline-none focus:border-neutral-900"
             >
               {INITIAL_OFFICERS.map((o) => (
                 <option key={o.id} value={o.name}>
@@ -83,15 +83,15 @@ export function RoomBookingModal({
             </select>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Time Slot
               </label>
               <select
                 value={timeSlot}
                 onChange={(e) => setTimeSlot(e.target.value)}
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 text-xs text-neutral-900 focus:outline-none focus:border-neutral-900"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:outline-none focus:border-neutral-900"
               >
                 <option value="10:00 AM - 11:30 AM">10:00 AM - 11:30 AM</option>
                 <option value="11:30 AM - 01:00 PM">11:30 AM - 01:00 PM</option>
@@ -100,7 +100,7 @@ export function RoomBookingModal({
               </select>
             </div>
             <div>
-              <label className="block font-semibold text-neutral-700 mb-1">
+              <label className="block font-semibold text-neutral-700 mb-1.5">
                 Attendees Count
               </label>
               <input
@@ -109,29 +109,29 @@ export function RoomBookingModal({
                 max={room.capacity}
                 value={attendeesCount}
                 onChange={(e) => setAttendeesCount(Number(e.target.value))}
-                className="w-full rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 text-xs text-neutral-900 focus:outline-none focus:border-neutral-900"
+                className="w-full rounded-2xl border border-neutral-200 bg-neutral-50/70 p-3 text-xs text-neutral-900 focus:outline-none focus:border-neutral-900"
               />
             </div>
           </div>
 
-          <div className="rounded-xl bg-neutral-50 p-3 text-neutral-600 border border-neutral-100">
-            <span className="font-semibold text-neutral-800">Collision Prevention Guard:</span>
-            <p className="mt-0.5 text-[11px] text-neutral-500">
-              The scheduler confirms room availability across existing officer appointments to guarantee zero double-booking.
+          <div className="rounded-2xl bg-neutral-50/80 p-4 text-neutral-600 border border-neutral-100">
+            <span className="font-bold text-neutral-900 block mb-0.5">Automated Collision Prevention:</span>
+            <p className="text-[11px] text-neutral-500 leading-relaxed">
+              The scheduler validates conference room availability across existing bookings to guarantee zero scheduling overlap.
             </p>
           </div>
 
-          <div className="flex items-center justify-end space-x-3 border-t border-neutral-100 pt-4">
+          <div className="flex items-center justify-end space-x-3 border-t border-neutral-100 pt-5">
             <button
               type="button"
               onClick={onClose}
-              className="rounded-xl border border-neutral-200 px-4 py-2 text-xs font-medium text-neutral-600 hover:bg-neutral-50"
+              className="rounded-xl border border-neutral-200 px-4 py-2.5 text-xs font-semibold text-neutral-600 hover:bg-neutral-50"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="rounded-xl bg-neutral-950 px-5 py-2 text-xs font-semibold text-white shadow-xs hover:bg-neutral-800"
+              className="rounded-xl bg-neutral-950 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-neutral-800"
             >
               Confirm Reservation
             </button>
