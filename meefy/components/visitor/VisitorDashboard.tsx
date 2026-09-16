@@ -119,7 +119,7 @@ export function VisitorDashboard() {
               v.passNumber,
               `${v.name} scanned QR at Gate 1. Verified and admitted to campus.`
             );
-            addToast("Visitor Checked In", `${v.name} has arrived at ${time}. Host ${v.hostName} notified.`, "success");
+            addToast("Visitor Admitted", `${v.name} checked in at ${time}. Host ${v.hostName} notified.`, "success");
             return {
               ...v,
               status: "CHECKED_IN",
@@ -132,9 +132,9 @@ export function VisitorDashboard() {
               "RECEPTIONIST",
               "GATE_CHECKED_OUT",
               v.passNumber,
-              `${v.name} checked out at exit. Total visit logged.`
+              `${v.name} checked out at exit. Total visit duration logged.`
             );
-            addToast("Visitor Checked Out", `${v.name} departure logged at ${time}. Pass deactivated.`, "info");
+            addToast("Visitor Checked Out", `${v.name} departed at ${time}. Pass deactivated.`, "info");
             return {
               ...v,
               status: "CHECKED_OUT",
@@ -158,7 +158,7 @@ export function VisitorDashboard() {
               "OFFICER",
               "HOST_APPROVED",
               v.passNumber,
-              `Host ${v.hostName} approved meeting request with ${v.name}. Digital pass issued.`
+              `Host ${v.hostName} approved meeting request with ${v.name}. Pass generated.`
             );
             addToast("Appointment Approved", `Pass generated for ${v.name}. Confirmation email dispatched.`, "success");
             return { ...v, status: "APPROVED" };
@@ -191,7 +191,7 @@ export function VisitorDashboard() {
             v.passNumber,
             `Delegated appointment to ${newHostName}.`
           );
-          addToast("Visit Delegated", `Meeting with ${v.name} re-assigned to ${newHostName}.`, "info");
+          addToast("Visit Delegated", `Meeting with ${v.name} transferred to ${newHostName}.`, "info");
           return { ...v, hostName: newHostName };
         }
         return v;
@@ -325,7 +325,7 @@ export function VisitorDashboard() {
       passNum,
       `Public visit request submitted online with phone OTP verification.`
     );
-    addToast("Visit Request Submitted", `Your tracking token is ${passNum}. Awaiting screening.`, "info");
+    addToast("Visit Request Submitted", `Tracking token: ${passNum}. Awaiting receptionist screening.`, "info");
   };
 
   // Actions: Room Booking
@@ -376,9 +376,9 @@ export function VisitorDashboard() {
       />
 
       {/* 3. Main Body */}
-      <main className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-8">
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10 space-y-8">
         {/* KPI Metrics Strip */}
-        <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           <MetricCard
             title="Currently Inside"
             value={activeInsideCount}
@@ -386,7 +386,7 @@ export function VisitorDashboard() {
             livePulse={true}
             badgeText="Safety Roll-Call Ready"
             badgeType="success"
-            footerLeft="Real-time head count"
+            footerLeft="Real-time headcount"
             footerRight="100% Verified"
           />
 
