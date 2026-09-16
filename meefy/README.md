@@ -1,6 +1,6 @@
-# NIELIT Visitor & Meeting Management System (`VisitFlow`)
+Visitor & Meeting Management System (`VisitFlow`)
 
-A modern, secure, and paperless visitor and meeting management platform designed for **NIELIT Bhubaneswar** to replace manual paper registers and streamline the complete visitor lifecycle.
+A modern, secure, and paperless visitor and meeting management platform to replace manual paper registers and streamline the complete visitor lifecycle.
 
 > 📌 **Detailed Architecture Document**: For the complete system architecture, sequence diagrams, and database schemas, refer to [ARCHITECTURE.md](file:///d:/VisitFlow-Meefy/meefy/ARCHITECTURE.md).
 
