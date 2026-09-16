@@ -1,5 +1,5 @@
 import React from "react";
-import { VisitorRecord } from "@/types/visitor.types";
+import { VisitorRecord } from "@/types/visitor";
 
 interface DigitalPassModalProps {
   visitor: VisitorRecord | null;
@@ -15,22 +15,24 @@ export function DigitalPassModal({
   if (!isOpen || !visitor) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 backdrop-blur-xs p-4">
-      <div className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-neutral-200 bg-white p-6 shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs p-4 print:p-0">
+      <div className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-neutral-200 bg-white p-6 shadow-2xl print:border-none print:shadow-none print:max-w-none">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 rounded-full p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-700 transition-colors"
+          className="absolute right-4 top-4 rounded-full p-1.5 text-neutral-400 hover:bg-neutral-100 hover:text-neutral-700 transition-colors print:hidden"
         >
           ✕
         </button>
 
         {/* Pass Header */}
         <div className="text-center border-b border-dashed border-neutral-200 pb-4">
-          <span className="text-[10px] font-bold tracking-widest text-neutral-400 uppercase">
-            NIELIT BHUBANESWAR
-          </span>
-          <h3 className="text-base font-extrabold text-neutral-900 tracking-tight mt-0.5">
-            OFFICIAL VISITOR PASS
+          <div className="flex items-center justify-center space-x-1 text-[10px] font-bold tracking-widest text-neutral-400 uppercase">
+            <span>NIELIT BHUBANESWAR</span>
+            <span>•</span>
+            <span>MEITY, GOVT OF INDIA</span>
+          </div>
+          <h3 className="text-base font-extrabold text-neutral-950 tracking-tight mt-0.5">
+            OFFICIAL SECURE QR PASS
           </h3>
           <p className="font-mono text-xs font-semibold text-neutral-600 mt-1">
             {visitor.passNumber}
@@ -38,39 +40,15 @@ export function DigitalPassModal({
         </div>
 
         {/* Pass Body & QR Code */}
-        <div className="py-5 text-center">
+        <div className="py-4 text-center">
           <div className="mx-auto flex h-36 w-36 items-center justify-center rounded-2xl border-2 border-neutral-900 p-2.5 bg-white shadow-xs">
             {/* SVG QR Code Simulation */}
             <svg className="h-full w-full" viewBox="0 0 100 100" fill="none">
-              <rect
-                x="5"
-                y="5"
-                width="30"
-                height="30"
-                stroke="#000"
-                strokeWidth="6"
-                rx="4"
-              />
+              <rect x="5" y="5" width="30" height="30" stroke="#000" strokeWidth="6" rx="4" />
               <rect x="13" y="13" width="14" height="14" fill="#000" />
-              <rect
-                x="65"
-                y="5"
-                width="30"
-                height="30"
-                stroke="#000"
-                strokeWidth="6"
-                rx="4"
-              />
+              <rect x="65" y="5" width="30" height="30" stroke="#000" strokeWidth="6" rx="4" />
               <rect x="73" y="13" width="14" height="14" fill="#000" />
-              <rect
-                x="5"
-                y="65"
-                width="30"
-                height="30"
-                stroke="#000"
-                strokeWidth="6"
-                rx="4"
-              />
+              <rect x="5" y="65" width="30" height="30" stroke="#000" strokeWidth="6" rx="4" />
               <rect x="13" y="73" width="14" height="14" fill="#000" />
               <rect x="42" y="10" width="8" height="8" fill="#000" />
               <rect x="52" y="22" width="8" height="8" fill="#000" />
@@ -86,19 +64,19 @@ export function DigitalPassModal({
             </svg>
           </div>
 
-          <div className="mt-4">
-            <h4 className="text-base font-bold text-neutral-900">{visitor.name}</h4>
-            <p className="text-xs font-medium text-neutral-500">
+          <div className="mt-3">
+            <h4 className="text-base font-bold text-neutral-950">{visitor.name}</h4>
+            <p className="text-xs text-neutral-500 font-medium">
               {visitor.organization}
             </p>
             <span className="mt-1.5 inline-block rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-800 border border-emerald-200">
-              {visitor.status}
+              {visitor.status === "CHECKED_IN" ? "Checked In (Active)" : "Approved For Entry"}
             </span>
           </div>
         </div>
 
         {/* Pass Metadata */}
-        <div className="space-y-2 border-t border-dashed border-neutral-200 pt-4 text-xs">
+        <div className="space-y-2 border-t border-dashed border-neutral-200 pt-3 text-xs">
           <div className="flex justify-between">
             <span className="text-neutral-500">Host Officer:</span>
             <span className="font-semibold text-neutral-900 text-right">
@@ -112,29 +90,36 @@ export function DigitalPassModal({
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-neutral-500">Slot / Window:</span>
+            <span className="text-neutral-500">Valid Slot Window:</span>
             <span className="font-medium text-neutral-800">
               {visitor.scheduledTime}
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="text-neutral-500">ID Verification:</span>
+            <span className="text-neutral-500">Designated Venue:</span>
+            <span className="font-medium text-indigo-700">
+              {visitor.roomName || "Main Office / Reception Desk"}
+            </span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-neutral-500">Verified ID:</span>
             <span className="font-mono text-neutral-700">
-              {visitor.idNumberMasked}
+              {visitor.idType} ({visitor.idNumberMasked})
             </span>
           </div>
         </div>
 
-        <div className="mt-6 flex space-x-2">
+        {/* Action CTAs */}
+        <div className="mt-5 flex space-x-2 print:hidden">
           <button
             onClick={() => window.print()}
-            className="flex-1 rounded-xl bg-neutral-900 py-2 text-xs font-medium text-white hover:bg-neutral-800 shadow-xs transition-colors"
+            className="flex-1 rounded-xl bg-neutral-950 py-2.5 text-xs font-semibold text-white hover:bg-neutral-800 shadow-xs transition-colors"
           >
-            Print Badge / Pass
+            🖨 Print Badge / Pass
           </button>
           <button
             onClick={onClose}
-            className="rounded-xl border border-neutral-200 px-3 py-2 text-xs font-medium text-neutral-600 hover:bg-neutral-50 transition-colors"
+            className="rounded-xl border border-neutral-200 px-3.5 py-2 text-xs font-medium text-neutral-600 hover:bg-neutral-50 transition-colors"
           >
             Close
           </button>
