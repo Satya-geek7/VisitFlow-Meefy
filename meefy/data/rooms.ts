@@ -1,0 +1,50 @@
+import { RoomRecord } from "@/types/visitor.types";
+
+export const INITIAL_ROOMS: RoomRecord[] = [
+  {
+    id: "r-1",
+    name: "Executive Boardroom",
+    capacity: 24,
+    location: "Administrative Block, 2nd Floor",
+    currentMeeting: "Annual Academic Audit & Review",
+    hostName: "Dr. P. K. Dash (Director)",
+    status: "OCCUPIED",
+    nextAvailable: "01:15 PM",
+  },
+  {
+    id: "r-2",
+    name: "Conference Hall A",
+    capacity: 40,
+    location: "Main Building, 1st Floor",
+    currentMeeting: "TCS Campus Hiring Presentation",
+    hostName: "Er. Soumya Mishra",
+    status: "OCCUPIED",
+    nextAvailable: "02:00 PM",
+  },
+  {
+    id: "r-3",
+    name: "Conference Hall B",
+    capacity: 20,
+    location: "Main Building, 1st Floor",
+    status: "AVAILABLE",
+    nextAvailable: "Available Now",
+  },
+  {
+    id: "r-4",
+    name: "Seminar Auditorium",
+    capacity: 150,
+    location: "Convention Complex, Ground Floor",
+    status: "AVAILABLE",
+    nextAvailable: "Available Now",
+  },
+  {
+    id: "r-5",
+    name: "IoT Systems Lab",
+    capacity: 15,
+    location: "Tech Block B, Room 204",
+    currentMeeting: "Lab Sensors Diagnostics",
+    hostName: "Shri B. C. Panda",
+    status: "OCCUPIED",
+    nextAvailable: "03:00 PM",
+  },
+];
