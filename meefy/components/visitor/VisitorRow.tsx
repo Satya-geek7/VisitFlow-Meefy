@@ -85,7 +85,7 @@ export function VisitorRow({
             Approved (Waiting)
           </span>
         )}
-        {visitor.status === "PENDING_APPROVAL" && (
+        {visitor.status === "HOST_PENDING" && (
           <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-1 text-xs font-medium text-amber-800 border border-amber-200">
             Host Approval Pending
           </span>

@@ -15,7 +15,7 @@ export function Appointments({
   onCheckIn,
 }: AppointmentsProps) {
   const scheduledVisitors = visitors.filter(
-    (v) => v.status === "APPROVED" || v.status === "PENDING_APPROVAL"
+    (v) => v.status === "APPROVED" || v.status === "HOST_PENDING"
   );
 
   return (
@@ -54,11 +54,10 @@ export function Appointments({
                     {v.passNumber}
                   </span>
                   <span
-                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium border ${
-                      v.status === "APPROVED"
+                    className={`rounded-full px-2 py-0.5 text-[11px] font-medium border ${v.status === "APPROVED"
                         ? "bg-blue-50 text-blue-700 border-blue-200"
                         : "bg-amber-50 text-amber-700 border-amber-200"
-                    }`}
+                      }`}
                   >
                     {v.status === "APPROVED" ? "Approved" : "Awaiting Host"}
                   </span>

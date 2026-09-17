@@ -7,7 +7,7 @@ interface HostApprovalsProps {
 }
 
 export function HostApprovals({ visitors, onHostAction }: HostApprovalsProps) {
-  const pendingVisitors = visitors.filter((v) => v.status === "PENDING_APPROVAL");
+  const pendingVisitors = visitors.filter((v) => v.status === "HOST_PENDING");
 
   return (
     <div className="space-y-6">
