@@ -30,10 +30,10 @@ export function Header({
           <div className="flex items-center space-x-3.5">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white border border-neutral-200/80 p-1.5 shadow-xs">
               <Image
-                src="/images/NIELIT.png"
-                alt="NIELIT Logo"
-                width={76}
-                height={76}
+                src="/images/logo.svg"
+                alt="meefy logo"
+                width={88}
+                height={88}
                 className="object-contain"
                 priority
               />
@@ -126,18 +126,16 @@ export function Header({
             <button
               key={tab.key}
               onClick={() => onTabChange(tab.key)}
-              className={`flex items-center space-x-1.5 rounded-xl px-3 py-1.5 text-xs font-semibold shrink-0 transition-all ${
-                isActive
-                  ? "bg-neutral-900 text-white shadow-xs"
-                  : "bg-white border border-neutral-200/80 text-neutral-600 hover:bg-neutral-100"
-              }`}
+              className={`flex items-center space-x-1.5 rounded-xl px-3 py-1.5 text-xs font-semibold shrink-0 transition-all ${isActive
+                ? "bg-neutral-900 text-white shadow-xs"
+                : "bg-white border border-neutral-200/80 text-neutral-600 hover:bg-neutral-100"
+                }`}
             >
               <span>{tab.label}</span>
               {Boolean(tab.badge && tab.badge > 0) && (
                 <span
-                  className={`flex h-4 min-w-4 items-center justify-center rounded-full px-1 text-[9px] font-bold text-white ${
-                    tab.badgeColor || "bg-neutral-800"
-                  }`}
+                  className={`flex h-4 min-w-4 items-center justify-center rounded-full px-1 text-[9px] font-bold text-white ${tab.badgeColor || "bg-neutral-800"
+                    }`}
                 >
                   {tab.badge}
                 </span>

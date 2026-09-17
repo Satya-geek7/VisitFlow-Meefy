@@ -14,7 +14,6 @@ import { INITIAL_ROOMS } from "@/data/rooms";
 import { INITIAL_AUDIT_LOGS } from "@/data/auditLogs";
 import { generatePassNumber, formatTime } from "@/lib/utils";
 
-import { TopBanner } from "@/components/layout/TopBanner";
 import { Header } from "@/components/layout/Header";
 import { MetricCard } from "@/components/common/MetricCard";
 import { NotificationToast, ToastMessage } from "@/components/common/NotificationToast";
@@ -361,8 +360,7 @@ export function VisitorDashboard() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] text-neutral-900 selection:bg-neutral-900 selection:text-white">
-      {/* 1. Official NIELIT Top Banner */}
-      <TopBanner />
+
 
       {/* 2. Header & Tab Navigation */}
       <Header
