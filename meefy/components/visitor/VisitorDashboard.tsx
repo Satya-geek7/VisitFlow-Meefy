@@ -4,7 +4,6 @@ import React, { useState, useMemo } from "react";
 import { TabKey, VisitorRecord, RoomRecord, WalkInFormData } from "@/types/visitor.types";
 import { INITIAL_VISITORS } from "@/data/visitors";
 import { INITIAL_ROOMS } from "@/data/rooms";
-import { TopBanner } from "@/components/layout/TopBanner";
 import { Header } from "@/components/layout/Header";
 import { VisitorMetrics } from "./VisitorMetrics";
 import { VisitorSearch } from "./VisitorSearch";
@@ -134,10 +133,9 @@ export function VisitorDashboard() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] text-neutral-900 selection:bg-neutral-900 selection:text-white">
-      {/* 1. TopBanner */}
-      <TopBanner />
 
-      {/* 2. Header (with Navigation) */}
+
+      {/* 1. Header (with Navigation) */}
       <Header
         activeTab={activeTab}
         onTabChange={setActiveTab}
