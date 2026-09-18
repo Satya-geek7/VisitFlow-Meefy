@@ -45,11 +45,11 @@ Traditional paper visitor registers at the reception desk introduce serious bott
 ## 4. Technology Stack
 
 - **Frontend**: Next.js (React 19, TypeScript, Tailwind CSS)
-- **Backend**: Python FastAPI (Async RESTful API)
-- **Database**: PostgreSQL
-- **Authentication**: JWT-based Role-Based Access Control (RBAC)
-- **QR Generation & Scanning**: Python `qrcode` + `html5-qrcode` / `pyzbar`
-- **Notifications & Background Tasks**: Redis + Celery / RQ
+- **Backend**: Express 5 (TypeScript, Drizzle ORM)
+- **Database**: PostgreSQL 16
+- **Authentication**: JWT-based Role-Based Access Control (RBAC) + NextAuth
+- **QR Generation & Scanning**: Node.js `qrcode` + `jsQR`
+- **Notifications & Background Tasks**: Redis + BullMQ (Resend for Email, MSG91 for SMS)
 
 ---
 
@@ -57,8 +57,8 @@ Traditional paper visitor registers at the reception desk introduce serious bott
 
 ### Prerequisites
 - Node.js 20+ & pnpm
-- Python 3.12+
-- PostgreSQL
+- PostgreSQL 16
+- Redis
 
 ### Running Frontend
 ```bash

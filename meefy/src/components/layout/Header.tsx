@@ -48,7 +48,7 @@ export function Header({
                 </span>
               </div>
               <p className="text-[11px] font-medium text-neutral-400 hidden sm:block">
-                Visitor & Meeting Management • NIELIT
+                Visitor & Meeting Management Engine
               </p>
             </div>
           </div>

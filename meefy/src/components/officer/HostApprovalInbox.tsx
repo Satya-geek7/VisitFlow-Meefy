@@ -48,7 +48,7 @@ export function HostApprovalInbox({
             </span>
           </div>
           <p className="mt-1 text-xs text-neutral-500 max-w-2xl leading-relaxed">
-            Instant decision workflow for NIELIT officers: Accept meeting, issue digital pass, decline with reason, or delegate to department colleague
+            Instant decision workflow for host officers: Accept meeting, issue digital pass, decline with reason, or delegate to department colleague
           </p>
         </div>
 
@@ -185,7 +185,7 @@ export function HostApprovalInbox({
               Delegate Meeting to Colleague
             </h3>
             <p className="mt-1 text-xs text-neutral-500 leading-relaxed">
-              Select an available officer in NIELIT Bhubaneswar to take over this meeting.
+              Select an available officer to take over this meeting.
             </p>
 
             <div className="mt-4">

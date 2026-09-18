@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "VisitFlow(meefy) — NIELIT Bhubaneswar Visitor & Meeting Management",
-  description: "Paperless digital visitor intelligence, approvals, dynamic QR passes, and meeting room management for NIELIT Bhubaneswar.",
+  title: "VisitFlow (MEEFY) — Visitor & Appointment Management System",
+  description: "Enterprise digital visitor intelligence, approvals, dynamic QR passes, and gate scan operations.",
 };
 
 export default function RootLayout({
@@ -23,11 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-[#fafafa] text-neutral-900 font-sans">{children}</body>
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-white text-[#18181B] font-sans">
+        {children}
+      </body>
     </html>
   );
 }

@@ -27,9 +27,9 @@ export function DigitalPassModal({
         {/* Pass Header */}
         <div className="text-center border-b border-dashed border-neutral-200 pb-5">
           <div className="flex items-center justify-center space-x-2 text-[10px] font-black tracking-widest text-neutral-400 uppercase">
-            <span>NIELIT BHUBANESWAR</span>
+            <span>VISITOR ACCESS PASS</span>
             <span>•</span>
-            <span>MEITY, GOVT OF INDIA</span>
+            <span>SECURE CAMPUS ENTRY</span>
           </div>
           <h3 className="text-lg font-black text-neutral-950 tracking-tight mt-1 uppercase">
             Official Visitor Entry Pass

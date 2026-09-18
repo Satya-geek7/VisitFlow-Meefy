@@ -1,5 +1,5 @@
 import React from "react";
-import { RoomRecord } from "@/types/visitor.types";
+import { RoomRecord } from "@/types/room";
 
 interface RoomsAndHallsProps {
   rooms: RoomRecord[];

@@ -40,7 +40,7 @@ export function EmergencyEvacuationModal({
             </button>
           </div>
           <p className="mt-1.5 text-xs text-neutral-500">
-            NIELIT Bhubaneswar Campus Safety Roster • Generated on{" "}
+            Official Campus Safety Roster • Generated on{" "}
             <span className="font-mono font-semibold text-neutral-800">
               {new Date().toLocaleTimeString()} ({new Date().toLocaleDateString()})
             </span>

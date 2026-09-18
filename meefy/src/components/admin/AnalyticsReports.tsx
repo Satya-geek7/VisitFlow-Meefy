@@ -80,7 +80,7 @@ export function AnalyticsReports({ visitors }: AnalyticsReportsProps) {
             Peak Visiting Hours Distribution
           </h3>
           <p className="text-xs text-neutral-400 mt-0.5">
-            Hourly distribution of gate entry scans across NIELIT campus today
+            Hourly distribution of gate entry scans across campus today
           </p>
 
           <div className="mt-6 space-y-4">
@@ -111,7 +111,7 @@ export function AnalyticsReports({ visitors }: AnalyticsReportsProps) {
         {/* Department Volume Breakdown */}
         <div className="rounded-3xl border border-neutral-200/90 bg-white p-6 sm:p-8 shadow-xs">
           <h3 className="text-base font-bold tracking-tight text-neutral-950">
-            Traffic by NIELIT Division
+            Traffic by Department / Division
           </h3>
           <p className="text-xs text-neutral-400 mt-0.5">
             Breakdown of visitors across departments and facilities
@@ -127,7 +127,7 @@ export function AnalyticsReports({ visitors }: AnalyticsReportsProps) {
                     <span className="font-mono font-bold text-neutral-950">{count} visits</span>
                   </div>
                   <div className="mt-2.5 flex items-center justify-between text-[11px] text-neutral-500">
-                    <span>{pct}% of today's total campus traffic</span>
+                    <span>{pct}% of today&apos;s total campus traffic</span>
                     <span className="text-emerald-700 font-semibold">Authorized</span>
                   </div>
                 </div>

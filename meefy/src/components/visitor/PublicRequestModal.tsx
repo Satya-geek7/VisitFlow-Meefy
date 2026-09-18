@@ -68,7 +68,7 @@ export function PublicRequestModal({
               </span>
             </div>
             <p className="text-xs text-neutral-500 mt-1">
-              Request an official appointment with NIELIT Bhubaneswar officers and faculty
+              Request an official appointment with host officers and faculty
             </p>
           </div>
           <button
