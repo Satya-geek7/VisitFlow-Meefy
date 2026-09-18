@@ -333,7 +333,6 @@ export function VisitorDashboard() {
               visitors={visitors}
               onCheckIn={handleStatusToggle}
               onOpenWalkIn={() => setShowWalkInModal(true)}
-              onOpenPass={handleViewPass}
             />
           )}
 
