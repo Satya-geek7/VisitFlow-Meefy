@@ -9,10 +9,10 @@ import {
   ChartBarIcon,
   GearIcon,
   SignOutIcon,
-  Buildings,
+  BuildingsIcon,
 } from "@phosphor-icons/react";
 
-import logo from "@/logo.svg";
+import logo from "@/public/images/logo.svg";
 export type SidebarTab = "queue" | "approvals" | "scan" | "analytics" | "settings";
 
 interface AppSidebarProps {
@@ -61,8 +61,8 @@ export function AppSidebar({
       <div className="space-y-6">
         {/* Brand / Logo */}
         <div className="flex items-center gap-3 px-3 py-1">
-          <div className="w-9 h-9 rounded-xl bg-[#16A34A] text-white flex items-center justify-center shadow-xs">
-            <Image src={logo} alt="meefy logo" />
+          <div className="w-9 h-9 rounded-xl  text-white flex items-center justify-center shadow-xs overflow-hidden">
+            <Image src={logo} alt="meefy logo" width={30} height={30} priority />
           </div>
           <div>
             <div className="text-[15px] font-bold tracking-tight text-[#18181B] leading-none">
@@ -117,13 +117,13 @@ export function AppSidebar({
         <div className="flex items-center gap-2.5 px-2">
           <div className="relative w-9 h-9 rounded-full overflow-hidden bg-[#E4E4E7] border border-[#E8E8E5] shrink-0">
             {/* Sarah Miller avatar */}
-            <Image
-              src=""
+            {/* <Image
+              src="/images/avatar.png"
               alt="Sarah Miller"
               fill
               className="object-cover"
               sizes="36px"
-            />
+            /> */}
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-xs font-semibold text-[#18181B] truncate leading-tight">
