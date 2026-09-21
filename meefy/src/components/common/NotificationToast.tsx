@@ -27,10 +27,10 @@ export function NotificationToast({ toast, onDismiss }: NotificationToastProps) 
     toast.type === "success"
       ? "bg-white border-emerald-300 text-emerald-950"
       : toast.type === "warning"
-      ? "bg-white border-amber-300 text-amber-950"
-      : toast.type === "error"
-      ? "bg-white border-rose-300 text-rose-950"
-      : "bg-white border-neutral-300 text-neutral-900";
+        ? "bg-white border-amber-300 text-amber-950"
+        : toast.type === "error"
+          ? "bg-white border-rose-300 text-rose-950"
+          : "bg-white border-neutral-300 text-neutral-900";
 
   return (
     <div className="fixed bottom-6 right-6 z-50 max-w-sm animate-in fade-in slide-in-from-bottom-5 duration-200">

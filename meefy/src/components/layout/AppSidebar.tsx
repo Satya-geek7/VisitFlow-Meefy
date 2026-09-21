@@ -9,9 +9,10 @@ import {
   ChartBarIcon,
   GearIcon,
   SignOutIcon,
-  BuildingsIcon,
+  Buildings,
 } from "@phosphor-icons/react";
 
+import logo from "@/logo.svg";
 export type SidebarTab = "queue" | "approvals" | "scan" | "analytics" | "settings";
 
 interface AppSidebarProps {
@@ -61,14 +62,14 @@ export function AppSidebar({
         {/* Brand / Logo */}
         <div className="flex items-center gap-3 px-3 py-1">
           <div className="w-9 h-9 rounded-xl bg-[#16A34A] text-white flex items-center justify-center shadow-xs">
-            <BuildingsIcon size={20} weight="fill" />
+            <Image src={logo} alt="meefy logo" />
           </div>
           <div>
             <div className="text-[15px] font-bold tracking-tight text-[#18181B] leading-none">
               VisitFlow
             </div>
             <div className="text-[11px] font-medium text-[#71717A] mt-1 tracking-wider uppercase">
-              (MEEFY)
+              (meefy)
             </div>
           </div>
         </div>
@@ -82,11 +83,10 @@ export function AppSidebar({
               <button
                 key={item.id}
                 onClick={() => onSelectTab(item.id)}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  isActive
-                    ? "bg-[#16A34A] text-white shadow-xs"
-                    : "text-[#52525B] hover:bg-[#F0F0ED] hover:text-[#18181B]"
-                }`}
+                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive
+                  ? "bg-[#16A34A] text-white shadow-xs"
+                  : "text-[#52525B] hover:bg-[#F0F0ED] hover:text-[#18181B]"
+                  }`}
               >
                 <div className="flex items-center gap-2.5">
                   <Icon
@@ -98,11 +98,10 @@ export function AppSidebar({
                 </div>
                 {item.badge !== undefined && (
                   <span
-                    className={`px-1.5 py-0.5 text-[10px] font-semibold rounded-full ${
-                      isActive
-                        ? "bg-white text-[#16A34A]"
-                        : "bg-[#FEF3C7] text-[#D97706]"
-                    }`}
+                    className={`px-1.5 py-0.5 text-[10px] font-semibold rounded-full ${isActive
+                      ? "bg-white text-[#16A34A]"
+                      : "bg-[#FEF3C7] text-[#D97706]"
+                      }`}
                   >
                     {item.badge}
                   </span>
@@ -119,7 +118,7 @@ export function AppSidebar({
           <div className="relative w-9 h-9 rounded-full overflow-hidden bg-[#E4E4E7] border border-[#E8E8E5] shrink-0">
             {/* Sarah Miller avatar */}
             <Image
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80"
+              src=""
               alt="Sarah Miller"
               fill
               className="object-cover"
@@ -135,7 +134,7 @@ export function AppSidebar({
         </div>
 
         <button
-          onClick={() => {}}
+          onClick={() => { }}
           className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-[#71717A] hover:text-[#DC2626] hover:bg-[#FEF2F2] transition-colors"
         >
           <SignOutIcon size={16} />

@@ -42,18 +42,16 @@ export function Navigation({
           <button
             key={tab.key}
             onClick={() => onTabChange(tab.key)}
-            className={`flex items-center space-x-2 rounded-xl px-3.5 py-2 text-xs font-semibold tracking-tight transition-all duration-150 ${
-              isActive
-                ? "bg-neutral-900 text-white shadow-xs"
-                : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
-            }`}
+            className={`flex items-center space-x-2 rounded-xl px-3.5 py-2 text-xs font-semibold tracking-tight transition-all duration-150 ${isActive
+              ? "bg-neutral-900 text-white shadow-xs"
+              : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900"
+              }`}
           >
             <span>{tab.label}</span>
             {Boolean(tab.badge && tab.badge > 0) && (
               <span
-                className={`flex h-4 min-w-4 items-center justify-center rounded-full px-1.5 text-[10px] font-bold text-white shadow-2xs ${
-                  tab.badgeColor || "bg-neutral-800"
-                }`}
+                className={`flex h-4 min-w-4 items-center justify-center rounded-full px-1.5 text-[10px] font-bold text-white shadow-2xs ${tab.badgeColor || "bg-neutral-800"
+                  }`}
               >
                 {tab.badge}
               </span>

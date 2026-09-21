@@ -35,13 +35,12 @@ export function MetricCard({
         )}
         {badgeText && (
           <span
-            className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold border transition-colors ${
-              badgeType === "warning"
+            className={`rounded-full px-2.5 py-0.5 text-[11px] font-semibold border transition-colors ${badgeType === "warning"
                 ? "bg-amber-50 text-amber-800 border-amber-200/80"
                 : badgeType === "success"
-                ? "bg-emerald-50 text-emerald-800 border-emerald-200/80"
-                : "bg-neutral-100 text-neutral-600 border-neutral-200/80"
-            }`}
+                  ? "bg-emerald-50 text-emerald-800 border-emerald-200/80"
+                  : "bg-neutral-100 text-neutral-600 border-neutral-200/80"
+              }`}
           >
             {badgeText}
           </span>
