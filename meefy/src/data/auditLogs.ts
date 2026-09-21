@@ -1,0 +1,71 @@
+import { AuditLogEntry, BlacklistEntry } from "@/types/audit";
+
+export const INITIAL_AUDIT_LOGS: AuditLogEntry[] = [
+  {
+    id: "log-1",
+    timestamp: "10:04:12 AM",
+    actor: "Reception Desk (Gate 1)",
+    actorRole: "RECEPTIONIST",
+    action: "GATE_CHECKED_IN",
+    entityType: "APPOINTMENT",
+    entityId: "VIS-2026-0891",
+    details: "Dr. Rajeshwar Sharma (MeitY) verified via QR scan and ID check. Room: Executive Boardroom.",
+    ipAddress: "192.168.10.42",
+  },
+  {
+    id: "log-2",
+    timestamp: "11:28:45 AM",
+    actor: "Reception Desk (Gate 1)",
+    actorRole: "RECEPTIONIST",
+    action: "GATE_CHECKED_IN",
+    entityType: "APPOINTMENT",
+    entityId: "VIS-2026-0892",
+    details: "Subhashree Mohapatra (TCS) QR pass scanned. Host Er. Soumya Mishra notified.",
+    ipAddress: "192.168.10.42",
+  },
+  {
+    id: "log-3",
+    timestamp: "11:35:00 AM",
+    actor: "Dr. A. Nayak",
+    actorRole: "OFFICER",
+    action: "HOST_APPROVED",
+    entityType: "APPOINTMENT",
+    entityId: "VIS-2026-0894",
+    details: "Approved dissertation guidance appointment with Priyanka Senapati for 02:30 PM.",
+    ipAddress: "192.168.20.15",
+  },
+  {
+    id: "log-4",
+    timestamp: "11:35:02 AM",
+    actor: "VisitFlow Engine",
+    actorRole: "SYSTEM",
+    action: "PASS_ISSUED",
+    entityType: "APPOINTMENT",
+    entityId: "VIS-2026-0894",
+    details: "Signed digital QR pass generated with 120-min validity window.",
+    ipAddress: "127.0.0.1",
+  },
+  {
+    id: "log-5",
+    timestamp: "09:55:18 AM",
+    actor: "Security Gate 2 (Exit)",
+    actorRole: "RECEPTIONIST",
+    action: "GATE_CHECKED_OUT",
+    entityType: "APPOINTMENT",
+    entityId: "VIS-2026-0888",
+    details: "Alok Kumar Barik checked out. Duration: 50 minutes. Pass terminated.",
+    ipAddress: "192.168.10.43",
+  },
+];
+
+export const INITIAL_BLACKLIST: BlacklistEntry[] = [
+  {
+    id: "bl-1",
+    name: "Ranjan Kumar Das",
+    phone: "+91 94379 00000",
+    email: "rkdas.suspicious@mail.com",
+    reason: "Unruly conduct at administrative office on 14-Aug-2026. Banned from unannounced entry.",
+    addedBy: "Admin / Shri K. C. Tripathy",
+    addedAt: "15 Aug 2026",
+  },
+];
