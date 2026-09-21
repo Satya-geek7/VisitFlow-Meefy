@@ -5,15 +5,15 @@ import Image from "next/image";
 import { VisitorRecord } from "@/types/visitor";
 import { AppointmentDetailPanel } from "./AppointmentDetailPanel";
 import {
-  User,
-  Clock,
-  MapPin,
-  MagnifyingGlass,
-  Funnel,
-  CalendarBlank,
-  Plus,
-  CaretLeft,
-  CaretRight,
+  UserIcon,
+  ClockIcon,
+  MapPinIcon,
+  MagnifyingGlassIcon,
+  FunnelIcon,
+  CalendarBlankIcon,
+  PlusIcon,
+  CaretLeftIcon,
+  CaretRightIcon,
 } from "@phosphor-icons/react";
 
 interface VisitorQueueScreenProps {
@@ -146,7 +146,7 @@ export function VisitorQueueScreen({
             onClick={onOpenWalkIn}
             className="h-9 px-4 rounded-lg bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white text-xs font-semibold flex items-center gap-1.5 shadow-xs transition-all"
           >
-            <Plus size={15} weight="bold" />
+            <PlusIcon size={15} weight="bold" />
             <span>Walk-in Entry</span>
           </button>
         </div>
@@ -160,7 +160,7 @@ export function VisitorQueueScreen({
           <div className="flex flex-wrap items-center gap-3">
             {/* Search Input */}
             <div className="relative flex-1 min-w-[240px]">
-              <MagnifyingGlass
+              <MagnifyingGlassIcon
                 size={16}
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-[#A1A1AA]"
               />
@@ -191,7 +191,7 @@ export function VisitorQueueScreen({
                 <option value="UPCOMING">Upcoming</option>
                 <option value="EXPIRED">Expired</option>
               </select>
-              <Funnel
+              <FunnelIcon
                 size={13}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#71717A] pointer-events-none"
               />
@@ -208,7 +208,7 @@ export function VisitorQueueScreen({
                 <option value="MORNING">Morning (08:00 - 12:00)</option>
                 <option value="AFTERNOON">Afternoon (12:00 - 17:00)</option>
               </select>
-              <CalendarBlank
+              <CalendarBlankIcon
                 size={14}
                 className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#71717A] pointer-events-none"
               />
@@ -231,11 +231,10 @@ export function VisitorQueueScreen({
                   <div
                     key={visitor.id}
                     onClick={() => setSelectedVisitorId(visitor.id)}
-                    className={`rounded-xl border p-4 transition-all cursor-pointer bg-white ${
-                      isSelected
+                    className={`rounded-xl border p-4 transition-all cursor-pointer bg-white ${isSelected
                         ? "border-[#16A34A] ring-1 ring-[#16A34A] shadow-xs"
                         : "border-[#E8E8E5] hover:border-[#D4D4D0] hover:shadow-2xs"
-                    }`}
+                      }`}
                   >
                     {/* Top Row: Avatar + Name + Status Badge */}
                     <div className="flex items-start justify-between gap-3">
@@ -271,17 +270,17 @@ export function VisitorQueueScreen({
                     {/* Meta Details */}
                     <div className="mt-3.5 space-y-1.5 text-xs text-[#52525B] border-t border-[#F0F0ED] pt-3">
                       <div className="flex items-center gap-2">
-                        <User size={14} className="text-[#A1A1AA] shrink-0" />
+                        <UserIcon size={14} className="text-[#A1A1AA] shrink-0" />
                         <span className="truncate">
                           Host: <strong className="font-semibold text-[#18181B]">{visitor.hostName}</strong> ({visitor.department})
                         </span>
                       </div>
                       <div className="flex items-center gap-2 tabular-nums">
-                        <Clock size={14} className="text-[#A1A1AA] shrink-0" />
+                        <ClockIcon size={14} className="text-[#A1A1AA] shrink-0" />
                         <span>{visitor.scheduledTime}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <MapPin size={14} className="text-[#A1A1AA] shrink-0" />
+                        <MapPinIcon size={14} className="text-[#A1A1AA] shrink-0" />
                         <span className="truncate">{visitor.roomName || "Meeting Room B"}</span>
                       </div>
                     </div>
@@ -304,18 +303,17 @@ export function VisitorQueueScreen({
                 onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                 className="p-1.5 rounded border border-[#E8E8E5] bg-white hover:bg-[#F7F7F5] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
-                <CaretLeft size={13} />
+                <CaretLeftIcon size={13} />
               </button>
 
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                 <button
                   key={page}
                   onClick={() => setCurrentPage(page)}
-                  className={`w-7 h-7 rounded text-xs font-semibold transition-colors ${
-                    currentPage === page
+                  className={`w-7 h-7 rounded text-xs font-semibold transition-colors ${currentPage === page
                       ? "bg-[#16A34A] text-white"
                       : "border border-[#E8E8E5] bg-white text-[#18181B] hover:bg-[#F7F7F5]"
-                  }`}
+                    }`}
                 >
                   {page}
                 </button>
@@ -326,7 +324,7 @@ export function VisitorQueueScreen({
                 onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
                 className="p-1.5 rounded border border-[#E8E8E5] bg-white hover:bg-[#F7F7F5] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
-                <CaretRight size={13} />
+                <CaretRightIcon size={13} />
               </button>
             </div>
           </div>

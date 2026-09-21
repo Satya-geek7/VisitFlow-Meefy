@@ -4,17 +4,17 @@ import React from "react";
 import Image from "next/image";
 import { VisitorRecord } from "@/types/visitor";
 import {
-  Calendar,
-  Clock,
-  User,
-  Buildings,
-  IdentificationBadge,
-  Bell,
-  PencilSimple,
-  CheckCircle,
-  DotsThreeVertical,
-  SignIn,
-  SignOut,
+  CalendarIcon,
+  ClockIcon,
+  UserIcon,
+  BuildingsIcon,
+  IdentificationBadgeIcon,
+  BellIcon,
+  PencilSimpleIcon,
+  CheckCircleIcon,
+  DotsThreeVerticalIcon,
+  SignInIcon,
+  SignOutIcon,
 } from "@phosphor-icons/react";
 
 interface AppointmentDetailPanelProps {
@@ -33,7 +33,7 @@ export function AppointmentDetailPanel({
   if (!visitor) {
     return (
       <div className="w-[320px] lg:w-[340px] shrink-0 border border-[#E8E8E5] rounded-xl bg-white p-6 flex flex-col items-center justify-center text-center text-[#A1A1AA] min-h-[420px]">
-        <IdentificationBadge size={44} weight="light" className="mb-2 text-[#D4D4D8]" />
+        <IdentificationBadgeIcon size={44} weight="light" className="mb-2 text-[#D4D4D8]" />
         <p className="text-sm font-medium text-[#52525B]">No Appointment Selected</p>
         <p className="text-xs text-[#A1A1AA] mt-1 max-w-[200px]">
           Select any visitor card from the queue to view full credentials and security details.
@@ -61,7 +61,7 @@ export function AppointmentDetailPanel({
           className="p-1 rounded text-[#71717A] hover:text-[#18181B] hover:bg-[#F0F0ED] transition-colors"
           title="More options"
         >
-          <DotsThreeVertical size={18} weight="bold" />
+          <DotsThreeVerticalIcon size={18} weight="bold" />
         </button>
       </div>
 
@@ -83,7 +83,7 @@ export function AppointmentDetailPanel({
           )}
           {/* Verified Badge */}
           <div className="absolute bottom-0 right-0 p-0.5 bg-white rounded-full">
-            <CheckCircle size={18} weight="fill" className="text-[#16A34A]" />
+            <CheckCircleIcon size={18} weight="fill" className="text-[#16A34A]" />
           </div>
         </div>
 
@@ -102,11 +102,11 @@ export function AppointmentDetailPanel({
         </span>
         <div className="rounded-lg bg-[#F7F7F5] p-3 space-y-1">
           <div className="flex items-center gap-2 text-xs font-semibold text-[#18181B]">
-            <Calendar size={14} className="text-[#71717A]" />
+            <CalendarIcon size={14} className="text-[#71717A]" />
             <span>Today, Oct 24</span>
           </div>
           <div className="flex items-center gap-2 text-xs text-[#52525B] pl-5 tabular-nums">
-            <Clock size={12} className="text-[#A1A1AA]" />
+            <ClockIcon size={12} className="text-[#A1A1AA]" />
             <span>{visitor.scheduledTime}</span>
           </div>
         </div>
@@ -119,7 +119,7 @@ export function AppointmentDetailPanel({
         </span>
         <div className="rounded-lg bg-[#F7F7F5] p-3 space-y-1">
           <div className="flex items-center gap-2 text-xs font-semibold text-[#18181B]">
-            <User size={14} className="text-[#71717A]" />
+            <UserIcon size={14} className="text-[#71717A]" />
             <span>{visitor.hostName}</span>
           </div>
           <div className="text-xs text-[#52525B] pl-5">
@@ -135,7 +135,7 @@ export function AppointmentDetailPanel({
         </span>
         <div className="rounded-lg bg-[#F7F7F5] p-3 space-y-1">
           <div className="flex items-center gap-2 text-xs font-semibold text-[#18181B]">
-            <Buildings size={14} className="text-[#71717A]" />
+            <BuildingsIcon size={14} className="text-[#71717A]" />
             <span>{visitor.roomName || "Main Lobby"}</span>
           </div>
           <div className="text-[11px] text-[#71717A] pl-5">
@@ -150,7 +150,7 @@ export function AppointmentDetailPanel({
           onClick={() => onPrintBadge(visitor)}
           className="w-full h-10 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-2 transition-all shadow-xs"
         >
-          <IdentificationBadge size={16} weight="bold" />
+          <IdentificationBadgeIcon size={16} weight="bold" />
           <span>Print Badge</span>
         </button>
 
@@ -159,7 +159,7 @@ export function AppointmentDetailPanel({
             onClick={() => onNotifyHost(visitor)}
             className="h-9 border border-[#D4D4D0] bg-white hover:bg-[#F0F0ED] text-[#18181B] text-xs font-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors"
           >
-            <Bell size={14} />
+            <BellIcon size={14} />
             <span>Notify Host</span>
           </button>
 
@@ -168,7 +168,7 @@ export function AppointmentDetailPanel({
               onClick={() => onStatusToggle(visitor.id)}
               className="h-9 border border-[#DC2626] bg-white hover:bg-[#FEF2F2] text-[#DC2626] text-xs font-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors"
             >
-              <SignOut size={14} />
+              <SignOutIcon size={14} />
               <span>Check Out</span>
             </button>
           ) : canCheckIn ? (
@@ -176,7 +176,7 @@ export function AppointmentDetailPanel({
               onClick={() => onStatusToggle(visitor.id)}
               className="h-9 border border-[#16A34A] bg-[#F0FDF4] hover:bg-[#DCFCE7] text-[#15803D] text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
             >
-              <SignIn size={14} />
+              <SignInIcon size={14} />
               <span>Check In</span>
             </button>
           ) : (
@@ -184,7 +184,7 @@ export function AppointmentDetailPanel({
               onClick={() => {}}
               className="h-9 border border-[#D4D4D0] bg-white hover:bg-[#F0F0ED] text-[#18181B] text-xs font-medium rounded-lg flex items-center justify-center gap-1.5 transition-colors"
             >
-              <PencilSimple size={14} />
+              <PencilSimpleIcon size={14} />
               <span>Modify</span>
             </button>
           )}
@@ -193,7 +193,7 @@ export function AppointmentDetailPanel({
 
       {/* Pre-entry screening note */}
       <div className="flex items-center gap-2 bg-[#F7F7F5] rounded-lg p-2.5 text-[11px] text-[#52525B]">
-        <CheckCircle size={15} weight="fill" className="text-[#16A34A] shrink-0" />
+        <CheckCircleIcon size={15} weight="fill" className="text-[#16A34A] shrink-0" />
         <span>Visitor has completed pre-entry health screening.</span>
       </div>
     </div>

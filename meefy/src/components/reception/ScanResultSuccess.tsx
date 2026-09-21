@@ -4,14 +4,14 @@ import React from "react";
 import Image from "next/image";
 import { VisitorRecord } from "@/types/visitor";
 import {
-  ArrowLeft,
-  CheckCircle,
-  ShieldCheck,
-  MapPin,
-  Clock,
-  Calendar,
-  IdentificationBadge,
-  CaretRight,
+  ArrowLeftIcon,
+  CheckCircleIcon,
+  ShieldCheckIcon,
+  MapPinIcon,
+  ClockIcon,
+  CalendarIcon,
+  IdentificationBadgeIcon,
+  CaretRightIcon,
 } from "@phosphor-icons/react";
 
 interface ScanResultSuccessProps {
@@ -35,7 +35,7 @@ export function ScanResultSuccess({
           onClick={onBackToScanner}
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#52525B] hover:text-[#18181B] transition-colors"
         >
-          <ArrowLeft size={14} />
+          <ArrowLeftIcon size={14} />
           <span>Back to Scanner</span>
         </button>
       </div>
@@ -45,7 +45,7 @@ export function ScanResultSuccess({
         {/* Double concentric green ring */}
         <div className="relative flex items-center justify-center">
           <div className="w-24 h-24 rounded-full border-4 border-[#BBF7D0] flex items-center justify-center bg-[#DCFCE7]/30">
-            <CheckCircle size={64} weight="fill" className="text-[#16A34A]" />
+            <CheckCircleIcon size={64} weight="fill" className="text-[#16A34A]" />
           </div>
         </div>
 
@@ -62,7 +62,7 @@ export function ScanResultSuccess({
         {/* Card Header */}
         <div className="flex items-center justify-between pb-3 border-b border-[#E8E8E5]">
           <div className="flex items-center gap-2">
-            <IdentificationBadge size={18} className="text-[#16A34A]" />
+            <IdentificationBadgeIcon size={18} className="text-[#16A34A]" />
             <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-[#18181B]">
                 Visitor Identity
@@ -124,7 +124,7 @@ export function ScanResultSuccess({
                 Appointment Time
               </span>
               <div className="flex items-center gap-1.5 text-xs font-semibold text-[#18181B] mt-0.5 tabular-nums">
-                <Clock size={13} className="text-[#71717A]" />
+                <ClockIcon size={13} className="text-[#71717A]" />
                 <span>{visitor.scheduledTime}</span>
               </div>
             </div>
@@ -134,7 +134,7 @@ export function ScanResultSuccess({
                 Date
               </span>
               <div className="flex items-center gap-1.5 text-xs font-semibold text-[#18181B] mt-0.5">
-                <Calendar size={13} className="text-[#71717A]" />
+                <CalendarIcon size={13} className="text-[#71717A]" />
                 <span>Oct 24, 2023</span>
               </div>
             </div>
@@ -166,7 +166,7 @@ export function ScanResultSuccess({
                 Destination
               </span>
               <div className="flex items-start gap-1.5 mt-0.5">
-                <MapPin size={13} className="text-[#71717A] mt-0.5 shrink-0" />
+                <MapPinIcon size={13} className="text-[#71717A] mt-0.5 shrink-0" />
                 <div>
                   <p className="text-xs font-semibold text-[#18181B] leading-none">
                     {visitor.roomName || "Innovation Lab B-12"}
@@ -180,7 +180,7 @@ export function ScanResultSuccess({
 
         {/* Security Clearance Alert Note */}
         <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#F0FDF4] border border-[#DCFCE7] text-xs text-[#15803D]">
-          <ShieldCheck size={16} weight="fill" className="text-[#16A34A] shrink-0 mt-0.5" />
+          <ShieldCheckIcon size={16} weight="fill" className="text-[#16A34A] shrink-0 mt-0.5" />
           <p className="leading-relaxed">
             Security clearance level: <strong>Level 2 (Standard Office)</strong>. Escort not required for this destination.
           </p>
@@ -201,7 +201,7 @@ export function ScanResultSuccess({
           className="h-10 px-7 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 shadow-xs transition-all"
         >
           <span>Complete Check-in</span>
-          <CaretRight size={14} weight="bold" />
+          <CaretRightIcon size={14} weight="bold" />
         </button>
       </div>
 

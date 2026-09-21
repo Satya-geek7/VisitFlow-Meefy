@@ -4,17 +4,17 @@ import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import { VisitorRecord } from "@/types/visitor";
 import {
-  Clock,
-  User,
-  ShieldCheck,
-  CalendarBlank,
-  ClockCounterClockwise,
-  CheckCircle,
-  XCircle,
-  DotsThree,
-  MagnifyingGlass,
-  Funnel,
-  ArrowsDownUp,
+  ClockIcon,
+  UserIcon,
+  ShieldCheckIcon,
+  CalendarBlankIcon,
+  ClockCounterClockwiseIcon,
+  CheckCircleIcon,
+  XCircleIcon,
+  DotsThreeIcon,
+  MagnifyingGlassIcon,
+  FunnelIcon,
+  ArrowsDownUpIcon,
 } from "@phosphor-icons/react";
 
 interface AccessApprovalsScreenProps {
@@ -87,7 +87,7 @@ export function AccessApprovalsScreen({
             onClick={onViewHistory}
             className="h-9 px-3.5 border border-[#D4D4D0] bg-white hover:bg-[#F0F0ED] text-[#18181B] text-xs font-medium rounded-lg flex items-center gap-1.5 transition-colors shadow-2xs"
           >
-            <ClockCounterClockwise size={15} />
+            <ClockCounterClockwiseIcon size={15} />
             <span>History</span>
           </button>
 
@@ -98,7 +98,7 @@ export function AccessApprovalsScreen({
             }}
             className="h-9 px-4 rounded-lg bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white text-xs font-semibold flex items-center gap-1.5 shadow-xs transition-all"
           >
-            <ShieldCheck size={16} weight="bold" />
+            <ShieldCheckIcon size={16} weight="bold" />
             <span>Bulk Actions</span>
           </button>
         </div>
@@ -110,7 +110,7 @@ export function AccessApprovalsScreen({
         <div className="border border-[#E8E8E5] rounded-xl bg-white p-4 space-y-2">
           <div className="flex items-center justify-between text-[#71717A]">
             <span className="text-xs font-medium">Pending Clearance</span>
-            <Clock size={16} />
+            <ClockIcon size={16} />
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold tracking-tight text-[#18181B] tabular-nums">
@@ -127,7 +127,7 @@ export function AccessApprovalsScreen({
         <div className="border border-[#E8E8E5] rounded-xl bg-white p-4 space-y-2">
           <div className="flex items-center justify-between text-[#71717A]">
             <span className="text-xs font-medium">Active Visitors</span>
-            <User size={16} />
+            <UserIcon size={16} />
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold tracking-tight text-[#18181B] tabular-nums">
@@ -141,7 +141,7 @@ export function AccessApprovalsScreen({
         <div className="border border-[#E8E8E5] rounded-xl bg-white p-4 space-y-2">
           <div className="flex items-center justify-between text-[#71717A]">
             <span className="text-xs font-medium">Security Alerts</span>
-            <ShieldCheck size={16} />
+            <ShieldCheckIcon size={16} />
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold tracking-tight text-[#18181B] tabular-nums">
@@ -155,7 +155,7 @@ export function AccessApprovalsScreen({
         <div className="border border-[#E8E8E5] rounded-xl bg-white p-4 space-y-2">
           <div className="flex items-center justify-between text-[#71717A]">
             <span className="text-xs font-medium">Today&apos;s Total</span>
-            <CalendarBlank size={16} />
+            <CalendarBlankIcon size={16} />
           </div>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold tracking-tight text-[#18181B] tabular-nums">
@@ -179,7 +179,7 @@ export function AccessApprovalsScreen({
 
           <div className="flex items-center gap-2">
             <div className="relative min-w-[220px]">
-              <MagnifyingGlass
+              <MagnifyingGlassIcon
                 size={15}
                 className="absolute left-3 top-1/2 -translate-y-1/2 text-[#A1A1AA]"
               />
@@ -192,7 +192,7 @@ export function AccessApprovalsScreen({
               />
             </div>
             <button className="h-8 w-8 rounded-lg border border-[#E8E8E5] bg-white hover:bg-[#F7F7F5] flex items-center justify-center text-[#71717A]">
-              <Funnel size={14} />
+              <FunnelIcon size={14} />
             </button>
           </div>
         </div>
@@ -205,7 +205,7 @@ export function AccessApprovalsScreen({
                 <th className="py-3 px-4">
                   <div className="flex items-center gap-1 cursor-pointer">
                     <span>ID</span>
-                    <ArrowsDownUp size={12} className="text-[#A1A1AA]" />
+                    <ArrowsDownUpIcon size={12} className="text-[#A1A1AA]" />
                   </div>
                 </th>
                 <th className="py-3 px-4">Visitor</th>
@@ -293,7 +293,7 @@ export function AccessApprovalsScreen({
                             className="p-1 rounded text-[#71717A] hover:text-[#16A34A] hover:bg-[#DCFCE7]/60 transition-colors"
                             title="Approve Clearance"
                           >
-                            <CheckCircle size={20} weight="regular" />
+                            <CheckCircleIcon size={20} weight="regular" />
                           </button>
 
                           {/* Reject Button */}
@@ -302,7 +302,7 @@ export function AccessApprovalsScreen({
                             className="p-1 rounded text-[#71717A] hover:text-[#DC2626] hover:bg-[#FEE2E2]/60 transition-colors"
                             title="Reject Clearance"
                           >
-                            <XCircle size={20} weight="regular" />
+                            <XCircleIcon size={20} weight="regular" />
                           </button>
 
                           {/* More Options */}
@@ -310,7 +310,7 @@ export function AccessApprovalsScreen({
                             className="p-1 rounded text-[#71717A] hover:text-[#18181B] hover:bg-[#F0F0ED] transition-colors"
                             title="More options"
                           >
-                            <DotsThree size={20} weight="bold" />
+                            <DotsThreeIcon size={20} weight="bold" />
                           </button>
                         </div>
                       </td>

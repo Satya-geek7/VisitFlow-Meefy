@@ -5,10 +5,10 @@ import { VisitorRecord } from "@/types/visitor";
 import { ScanResultSuccess } from "./ScanResultSuccess";
 import { ScanResultFailure } from "./ScanResultFailure";
 import {
-  QrCode,
-  Flashlight,
-  CheckCircle,
-  XCircle,
+  QrCodeIcon,
+  FlashlightIcon,
+  CheckCircleIcon,
+  XCircleIcon,
 } from "@phosphor-icons/react";
 
 interface GateScanViewProps {
@@ -106,7 +106,7 @@ export function GateScanView({
             className="px-2.5 py-1 rounded-md text-xs font-semibold bg-[#DCFCE7] text-[#15803D] hover:bg-[#BBF7D0] transition-colors flex items-center gap-1"
             title="Preview Screen 3: Access Granted"
           >
-            <CheckCircle size={14} weight="bold" />
+            <CheckCircleIcon size={14} weight="bold" />
             <span>Simulate Success</span>
           </button>
           <button
@@ -114,7 +114,7 @@ export function GateScanView({
             className="px-2.5 py-1 rounded-md text-xs font-semibold bg-[#FEE2E2] text-[#DC2626] hover:bg-[#FECACA] transition-colors flex items-center gap-1"
             title="Preview Screen 4: Expired Pass"
           >
-            <XCircle size={14} weight="bold" />
+            <XCircleIcon size={14} weight="bold" />
             <span>Simulate Error</span>
           </button>
         </div>
@@ -138,12 +138,12 @@ export function GateScanView({
           }`}
           title="Toggle flashlight"
         >
-          <Flashlight size={16} weight={torchOn ? "fill" : "regular"} />
+          <FlashlightIcon size={16} weight={torchOn ? "fill" : "regular"} />
         </button>
 
         {/* Scanner Center Target & Animation */}
         <div className="relative w-48 h-48 border border-white/20 rounded-xl flex flex-col items-center justify-center text-center p-4">
-          <QrCode size={56} weight="thin" className="text-[#22C55E]/80 animate-pulse" />
+          <QrCodeIcon size={56} weight="thin" className="text-[#22C55E]/80 animate-pulse" />
           <p className="text-[11px] font-medium text-neutral-300 mt-2">
             Align QR pass inside frame
           </p>

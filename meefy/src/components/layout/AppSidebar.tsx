@@ -3,13 +3,13 @@
 import React from "react";
 import Image from "next/image";
 import {
-  SquaresFour,
-  ClipboardText,
-  QrCode,
-  ChartBar,
-  Gear,
-  SignOut,
-  Buildings,
+  SquaresFourIcon,
+  ClipboardTextIcon,
+  QrCodeIcon,
+  ChartBarIcon,
+  GearIcon,
+  SignOutIcon,
+  BuildingsIcon,
 } from "@phosphor-icons/react";
 
 export type SidebarTab = "queue" | "approvals" | "scan" | "analytics" | "settings";
@@ -29,28 +29,28 @@ export function AppSidebar({
     {
       id: "queue" as SidebarTab,
       label: "Queue",
-      icon: SquaresFour,
+      icon: SquaresFourIcon,
     },
     {
       id: "approvals" as SidebarTab,
       label: "Approvals",
-      icon: ClipboardText,
+      icon: ClipboardTextIcon,
       badge: pendingApprovalsCount > 0 ? pendingApprovalsCount : undefined,
     },
     {
       id: "scan" as SidebarTab,
       label: "Scan Pass",
-      icon: QrCode,
+      icon: QrCodeIcon,
     },
     {
       id: "analytics" as SidebarTab,
       label: "Analytics",
-      icon: ChartBar,
+      icon: ChartBarIcon,
     },
     {
       id: "settings" as SidebarTab,
       label: "Settings",
-      icon: Gear,
+      icon: GearIcon,
     },
   ];
 
@@ -61,7 +61,7 @@ export function AppSidebar({
         {/* Brand / Logo */}
         <div className="flex items-center gap-3 px-3 py-1">
           <div className="w-9 h-9 rounded-xl bg-[#16A34A] text-white flex items-center justify-center shadow-xs">
-            <Buildings size={20} weight="fill" />
+            <BuildingsIcon size={20} weight="fill" />
           </div>
           <div>
             <div className="text-[15px] font-bold tracking-tight text-[#18181B] leading-none">
@@ -138,7 +138,7 @@ export function AppSidebar({
           onClick={() => {}}
           className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-medium text-[#71717A] hover:text-[#DC2626] hover:bg-[#FEF2F2] transition-colors"
         >
-          <SignOut size={16} />
+          <SignOutIcon size={16} />
           <span>Logout</span>
         </button>
       </div>

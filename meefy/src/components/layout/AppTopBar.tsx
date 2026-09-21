@@ -2,7 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
-import { MagnifyingGlass, Bell, HouseLine, CaretRight } from "@phosphor-icons/react";
+import {
+  MagnifyingGlassIcon,
+  BellIcon,
+  HouseLineIcon,
+  CaretRightIcon,
+} from "@phosphor-icons/react";
 
 interface AppTopBarProps {
   breadcrumbTitle?: string;
@@ -22,10 +27,10 @@ export function AppTopBar({
       {/* Left: Breadcrumbs */}
       <div className="flex items-center gap-2 text-xs text-[#71717A]">
         <div className="flex items-center gap-1.5 hover:text-[#18181B] cursor-pointer transition-colors">
-          <HouseLine size={15} />
+          <HouseLineIcon size={15} />
           <span>Dashboard</span>
         </div>
-        <CaretRight size={12} className="text-[#A1A1AA]" />
+        <CaretRightIcon size={12} className="text-[#A1A1AA]" />
         <span className="font-semibold text-[#18181B]">{breadcrumbTitle}</span>
       </div>
 
@@ -33,7 +38,7 @@ export function AppTopBar({
       <div className="flex items-center gap-5">
         {/* Search */}
         <div className="relative">
-          <MagnifyingGlass
+          <MagnifyingGlassIcon
             size={15}
             className="absolute left-3 top-1/2 -translate-y-1/2 text-[#A1A1AA]"
           />
@@ -52,7 +57,7 @@ export function AppTopBar({
           className="relative p-2 rounded-lg text-[#71717A] hover:bg-[#F0F0ED] hover:text-[#18181B] transition-colors"
           title="Notifications"
         >
-          <Bell size={18} />
+          <BellIcon size={18} />
           <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#EF4444] ring-2 ring-white" />
         </button>
 

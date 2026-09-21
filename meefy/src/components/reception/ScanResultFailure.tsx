@@ -2,14 +2,14 @@
 
 import React, { useState } from "react";
 import {
-  ArrowLeft,
-  XCircle,
-  Warning,
-  ArrowClockwise,
-  MagnifyingGlass,
-  UserPlus,
-  Headset,
-  CaretRight,
+  ArrowLeftIcon,
+  XCircleIcon,
+  WarningIcon,
+  ArrowClockwiseIcon,
+  MagnifyingGlassIcon,
+  UserPlusIcon,
+  HeadsetIcon,
+  CaretRightIcon,
 } from "@phosphor-icons/react";
 
 interface ScanResultFailureProps {
@@ -44,7 +44,7 @@ export function ScanResultFailure({
           onClick={onBackToScanner}
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#52525B] hover:text-[#18181B] transition-colors"
         >
-          <ArrowLeft size={14} />
+          <ArrowLeftIcon size={14} />
           <span>Back to Scanner</span>
         </button>
         <span className="font-mono text-xs text-[#71717A]">
@@ -57,7 +57,7 @@ export function ScanResultFailure({
         {/* Double concentric red ring */}
         <div className="relative flex items-center justify-center">
           <div className="w-24 h-24 rounded-full border-4 border-[#FEE2E2] flex items-center justify-center bg-[#FEF2F2]">
-            <XCircle size={64} weight="fill" className="text-[#DC2626]" />
+            <XCircleIcon size={64} weight="fill" className="text-[#DC2626]" />
           </div>
         </div>
 
@@ -72,7 +72,7 @@ export function ScanResultFailure({
       {/* System Error Pill Banner */}
       <div className="flex items-center justify-between p-3 rounded-xl bg-[#FEF2F2] border border-[#FEE2E2] text-xs">
         <div className="flex items-center gap-2 text-[#DC2626] font-semibold">
-          <Warning size={16} weight="bold" />
+          <WarningIcon size={16} weight="bold" />
           <span>System Error: TOKEN_EXPIRED</span>
         </div>
         <span className="text-[11px] text-[#A1A1AA]">Detected 2 minutes ago</span>
@@ -132,7 +132,7 @@ export function ScanResultFailure({
               onClick={onRetryScan}
               className="w-full h-10 bg-[#16A34A] hover:bg-[#15803D] active:scale-[0.99] text-white text-xs font-semibold rounded-lg flex items-center justify-center gap-2 shadow-xs transition-all"
             >
-              <ArrowClockwise size={15} weight="bold" />
+              <ArrowClockwiseIcon size={15} weight="bold" />
               <span>Retry QR Scan</span>
             </button>
 
@@ -141,7 +141,7 @@ export function ScanResultFailure({
               className="w-full h-10 border border-[#D4D4D0] bg-white hover:bg-[#F0F0ED] text-[#18181B] text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors shadow-2xs"
             >
               <span>Override & Verify Manually</span>
-              <CaretRight size={14} weight="bold" />
+              <CaretRightIcon size={14} weight="bold" />
             </button>
           </div>
         </div>
@@ -165,7 +165,7 @@ export function ScanResultFailure({
 
         <form onSubmit={handleLookup} className="flex gap-2">
           <div className="relative flex-1">
-            <MagnifyingGlass
+            <MagnifyingGlassIcon
               size={16}
               className="absolute left-3 top-1/2 -translate-y-1/2 text-[#A1A1AA]"
             />
@@ -191,16 +191,16 @@ export function ScanResultFailure({
             onClick={onRegisterNewVisitor}
             className="inline-flex items-center gap-1.5 hover:text-[#16A34A] transition-colors"
           >
-            <UserPlus size={15} />
+            <UserPlusIcon size={15} />
             <span>Register New Visitor</span>
           </button>
 
           <button
             type="button"
-            onClick={() => {}}
+            onClick={() => { }}
             className="inline-flex items-center gap-1.5 hover:text-[#16A34A] transition-colors"
           >
-            <Headset size={15} />
+            <HeadsetIcon size={15} />
             <span>Contact IT Support</span>
           </button>
         </div>
