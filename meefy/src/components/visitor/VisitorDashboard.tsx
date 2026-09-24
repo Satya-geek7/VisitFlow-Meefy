@@ -24,8 +24,10 @@ import { DigitalPassModal } from "@/components/visitor/DigitalPassModal";
 import { GateScannerModal } from "@/components/reception/GateScannerModal";
 import { PublicRequestModal } from "@/components/visitor/PublicRequestModal";
 import { EmergencyEvacuationModal } from "@/components/admin/EmergencyEvacuationModal";
+import { LandingPortalScreen } from "@/components/landing/LandingPortalScreen";
 
 export function VisitorDashboard() {
+  const [currentView, setCurrentView] = useState<"landing" | "dashboard">("landing");
   const [activeTab, setActiveTab] = useState<SidebarTab>("queue");
   const [visitors, setVisitors] = useState<VisitorRecord[]>(INITIAL_VISITORS);
   const [auditLogs, setAuditLogs] = useState<AuditLogEntry[]>(INITIAL_AUDIT_LOGS);
@@ -81,6 +83,11 @@ export function VisitorDashboard() {
   // Metrics
   const pendingApprovalsCount = useMemo(
     () => visitors.filter((v) => v.status === "HOST_PENDING").length,
+    [visitors]
+  );
+
+  const activeCheckedInCount = useMemo(
+    () => visitors.filter((v) => v.status === "CHECKED_IN").length,
     [visitors]
   );
 
@@ -282,6 +289,47 @@ export function VisitorDashboard() {
     }
   };
 
+  if (currentView === "landing") {
+    return (
+      <div className="min-h-screen bg-white text-[#18181B]">
+        <LandingPortalScreen
+          onEnterDashboard={(targetTab) => {
+            if (targetTab) setActiveTab(targetTab);
+            setCurrentView("dashboard");
+          }}
+          onOpenPublicRequest={() => setShowPublicRequestModal(true)}
+          onTrackPass={(passNumber) => {
+            const found = visitors.find((v) => v.passNumber === passNumber);
+            if (found) {
+              setSelectedPass(found);
+              setShowPassModal(true);
+            }
+          }}
+          pendingApprovalsCount={pendingApprovalsCount}
+          totalVisitorsToday={visitors.length}
+          activeCheckedInCount={activeCheckedInCount}
+          visitors={visitors}
+        />
+
+        {/* Floating Notification Toast */}
+        <NotificationToast toast={toast} onDismiss={() => setToast(null)} />
+
+        {/* Modals available from Landing Page */}
+        <DigitalPassModal
+          visitor={selectedPass}
+          isOpen={showPassModal}
+          onClose={() => setShowPassModal(false)}
+        />
+
+        <PublicRequestModal
+          isOpen={showPublicRequestModal}
+          onClose={() => setShowPublicRequestModal(false)}
+          onSubmit={handlePublicRequestSubmit}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex bg-white text-[#18181B]">
       {/* 1. Shell Sidebar (Fixed 220px) */}
@@ -289,6 +337,7 @@ export function VisitorDashboard() {
         activeTab={activeTab}
         onSelectTab={setActiveTab}
         pendingApprovalsCount={pendingApprovalsCount}
+        onReturnHome={() => setCurrentView("landing")}
       />
 
       {/* 2. Main Content Column */}
@@ -301,6 +350,7 @@ export function VisitorDashboard() {
           onOpenNotifications={() =>
             addToast("All Systems Operational", "Zero security alerts detected in the building.", "info")
           }
+          onReturnHome={() => setCurrentView("landing")}
         />
 
         {/* Content Area */}

@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:api": "pnpm --filter @vams/api dev",
     "build": "next build",
+    "build:api": "pnpm --filter @vams/api build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -12,7 +14,8 @@
     "@phosphor-icons/react": "^2.1.10",
     "next": "16.3.4",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

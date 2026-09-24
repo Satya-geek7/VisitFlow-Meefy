@@ -19,12 +19,14 @@ interface AppSidebarProps {
   activeTab: SidebarTab;
   onSelectTab: (tab: SidebarTab) => void;
   pendingApprovalsCount?: number;
+  onReturnHome?: () => void;
 }
 
 export function AppSidebar({
   activeTab,
   onSelectTab,
   pendingApprovalsCount = 0,
+  onReturnHome,
 }: AppSidebarProps) {
   const navItems = [
     {
@@ -60,19 +62,23 @@ export function AppSidebar({
       {/* Top section: Logo & Nav */}
       <div className="space-y-6">
         {/* Brand / Logo */}
-        <div className="flex items-center gap-3 px-3 py-1">
-          <div className="w-9 h-9 rounded-xl  text-white flex items-center justify-center shadow-xs overflow-hidden">
+        <button
+          onClick={onReturnHome}
+          className="w-full flex items-center gap-3 px-3 py-1 text-left rounded-xl hover:bg-[#F0F0ED] transition-colors group cursor-pointer"
+          title="Return to Portal Landing Page"
+        >
+          <div className="w-9 h-9 rounded-xl bg-[#16A34A] text-white flex items-center justify-center shadow-xs overflow-hidden shrink-0">
             <Image src={logo} alt="meefy logo" width={30} height={30} priority />
           </div>
           <div>
-            <div className="text-[15px] font-bold tracking-tight text-[#18181B] leading-none">
+            <div className="text-[15px] font-bold tracking-tight text-[#18181B] leading-none group-hover:text-[#16A34A] transition-colors">
               VisitFlow
             </div>
             <div className="text-[11px] font-medium text-[#71717A] mt-1 tracking-wider uppercase">
               (meefy)
             </div>
           </div>
-        </div>
+        </button>
 
         {/* Nav Items */}
         <nav className="space-y-1">

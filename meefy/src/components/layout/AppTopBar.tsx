@@ -2,11 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   MagnifyingGlassIcon,
   BellIcon,
   HouseLineIcon,
   CaretRightIcon,
+  ArrowSquareOutIcon,
 } from "@phosphor-icons/react";
 
 interface AppTopBarProps {
@@ -14,6 +16,7 @@ interface AppTopBarProps {
   searchQuery?: string;
   onSearchChange?: (query: string) => void;
   onOpenNotifications?: () => void;
+  onReturnHome?: () => void;
 }
 
 export function AppTopBar({
@@ -21,11 +24,21 @@ export function AppTopBar({
   searchQuery = "",
   onSearchChange,
   onOpenNotifications,
+  onReturnHome,
 }: AppTopBarProps) {
   return (
     <header className="h-14 w-full bg-white border-b border-[#E8E8E5] px-6 flex items-center justify-between sticky top-0 z-20">
       {/* Left: Breadcrumbs */}
       <div className="flex items-center gap-2 text-xs text-[#71717A]">
+        {onReturnHome && (
+          <button
+            onClick={onReturnHome}
+            className="inline-flex items-center gap-1 mr-1 px-2 py-1 rounded bg-[#F7F7F5] hover:bg-[#E8E8E5] text-[#18181B] font-semibold text-[11px] transition-colors"
+            title="Return to Portal Gateway"
+          >
+            ← Portal
+          </button>
+        )}
         <div className="flex items-center gap-1.5 hover:text-[#18181B] cursor-pointer transition-colors">
           <HouseLineIcon size={15} />
           <span>Dashboard</span>
@@ -50,6 +63,16 @@ export function AppTopBar({
             className="w-64 md:w-80 h-9 pl-9 pr-3 rounded-lg border border-[#E8E8E5] bg-[#F7F7F5] text-xs text-[#18181B] placeholder-[#A1A1AA] transition-all focus:bg-white focus:outline-none focus:border-[#D4D4D0] focus:ring-1 focus:ring-[#16A34A]"
           />
         </div>
+
+        {/* Public Visitor Request Portal Link */}
+        <Link
+          href="/request"
+          className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#E8E8E5] text-xs font-semibold text-[#18181B] bg-white hover:bg-[#F7F7F5] transition-colors"
+          title="Open Public Visitor Request Portal (/request)"
+        >
+          <ArrowSquareOutIcon size={14} />
+          <span>Public Form</span>
+        </Link>
 
         {/* Notifications */}
         <button
